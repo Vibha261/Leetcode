@@ -10,16 +10,16 @@ public:
             if(temp%2==0)
             {
                 match = temp/2;
-                cout<<"Match"<<match<<endl;
+                //cout<<"Match"<<match<<endl;
                 temp = temp/2;
-                cout<<"Advance"<<temp<<endl;
+                //cout<<"Advance"<<temp<<endl;
             }
             else
             {
                 match=(temp-1)/2;
-                cout<<"Match"<<match<<endl;
+                //cout<<"Match"<<match<<endl;
                 temp = ((temp-1)/2)+1;
-                cout<<"Advance"<<temp<<endl;
+                //cout<<"Advance"<<temp<<endl;
             }
             count+=match;
         }
