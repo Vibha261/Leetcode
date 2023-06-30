@@ -13,7 +13,20 @@ public:
     int findInMountainArray(int target, MountainArray &mountainArr) 
     {
         int n = mountainArr.length();
-        int peakIndex = peakIndexInMountainArray(mountainArr, 0, n - 1);
+        int peakIndex = 0;
+        int start =0;
+        int end = n-1;
+        
+        while (start < end) 
+        {
+            int m = (start + end) / 2;
+            if (mountainArr.get(m) < mountainArr.get(m + 1))
+                start = m + 1;
+            else
+                end = m;
+        }
+        peakIndex = start;
+
 
         int leftIndex = searchLeft(mountainArr, target, 0, peakIndex);
         if (mountainArr.get(leftIndex) == target)
@@ -27,17 +40,7 @@ public:
     }
 
  private:
-  int peakIndexInMountainArray(MountainArray& A, int l, int r) {
-    while (l < r) {
-      int m = (l + r) / 2;
-      if (A.get(m) < A.get(m + 1))
-        l = m + 1;
-      else
-        r = m;
-    }
-    return l;
-  }
-
+    
   int searchLeft(MountainArray& A, int target, int l, int r) {
     while (l < r) {
       int m = (l + r) / 2;
