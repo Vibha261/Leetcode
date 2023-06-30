@@ -27,39 +27,38 @@ public:
         }
         peakIndex = start;
 
-
-        int leftIndex = searchLeft(mountainArr, target, 0, peakIndex);
+        int leftIndex = 0;
+        start =0;
+        end=peakIndex;
+        
+        while (start < end) 
+        {
+          int m = (start + end) / 2;
+          if (mountainArr.get(m) < target)
+            start = m + 1;
+          else
+            end = m;
+        }
+        leftIndex = start;
         if (mountainArr.get(leftIndex) == target)
             return leftIndex;
 
-        int rightIndex = searchRight(mountainArr, target, peakIndex + 1, n - 1);
+        int rightIndex = 0;
+        start = peakIndex+1;
+        end=n-1;
+        
+        while (start < end) 
+        {
+          int m = (start + end) / 2;
+          if (mountainArr.get(m) > target)
+            start = m + 1;
+          else
+            end = m;
+        }
+        rightIndex = start;
         if (mountainArr.get(rightIndex) == target)
             return rightIndex;
 
         return -1;
-    }
-
- private:
-    
-  int searchLeft(MountainArray& A, int target, int l, int r) {
-    while (l < r) {
-      int m = (l + r) / 2;
-      if (A.get(m) < target)
-        l = m + 1;
-      else
-        r = m;
-    }
-    return l;
-  }
-
-  int searchRight(MountainArray& A, int target, int l, int r) {
-    while (l < r) {
-      int m = (l + r) / 2;
-      if (A.get(m) > target)
-        l = m + 1;
-      else
-        r = m;
-    }
-    return l;
     }
 };
