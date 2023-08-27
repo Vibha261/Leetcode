@@ -7,7 +7,7 @@ public:
             string wordy = words[i];
             check+=wordy[0];
         }
-        cout<<check<<endl;
+        // cout<<check<<endl;
         return check==s;
     }
 };
