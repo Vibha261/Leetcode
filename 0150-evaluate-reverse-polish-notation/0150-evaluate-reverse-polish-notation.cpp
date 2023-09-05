@@ -21,7 +21,7 @@ public:
     {
         int ans=0;
         stack<int> st;
-        for(const auto& op: tokens)
+        for(auto& op: tokens)
         {
             if(op=="+"||op=="-"||op=="*"||op=="/")
             {
