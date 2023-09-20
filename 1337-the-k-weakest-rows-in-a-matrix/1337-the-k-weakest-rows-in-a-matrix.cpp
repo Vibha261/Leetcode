@@ -30,7 +30,7 @@ public:
              });
         for(int i=0; i<k; i++)
         {
-            // cout<<store[i][0]<<"->"<<store[i][1]<<endl;
+            // cout<<"i "<<i<<"->"<<store[i][0]<<"->"<<store[i][1]<<endl;
             answer.push_back(store[i][0]);
         }
         return answer;
